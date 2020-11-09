@@ -5,7 +5,14 @@ const Category = require('../models/Category');
 
 module.exports = {
   async index(request, response) {
-    const products = await Product.find();
+    const { title, categoryId } = request.query;
+
+    const conditions = {
+      ...(categoryId ? { categoryId } : {}),
+      ...(title ? { title: { $regex: title } } : {}),
+    };
+
+    const products = await Product.find(conditions);
 
     return response.json(products);
   },
