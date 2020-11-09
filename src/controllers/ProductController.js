@@ -34,15 +34,17 @@ module.exports = {
   async update(request, response) {
     const { id } = request.params;
     const {
+      title,
       description,
       price,
-      category,
     } = request.body;
 
-    const product = await Product.updateOne({ title: id }, {
-      description,
-      price,
-      category,
+    const prevProduct = await Product.findOne({ _id: id });
+
+    const product = await Product.updateOne({ _id: id }, {
+      title: title || prevProduct.title,
+      description: description || prevProduct.description,
+      price: price || prevProduct.price,
     });
 
     return response.json(product);
