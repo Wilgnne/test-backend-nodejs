@@ -53,7 +53,7 @@ module.exports = {
   async destroy(request, response) {
     const { id } = request.params;
 
-    const deleted = await Product.deleteOne({ title: id });
+    const deleted = await Product.deleteOne({ _id: id });
 
     return response.json(deleted);
   },
