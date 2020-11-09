@@ -18,18 +18,19 @@ module.exports = {
       categoryId,
     } = request.body;
 
-    let product = await Product.findOne({ title });
-
-    if (!product) {
-      product = await Product.create({
+    const categoryModel = await Category.findOne({ _id: categoryId });
+    if (categoryModel) {
+      const product = await Product.create({
         title,
         description,
         price,
         categoryId,
       });
+
+      return response.json(product);
     }
 
-    return response.json(product);
+    return response.status(500).send('Bad Request');
   },
 
   async update(request, response) {
