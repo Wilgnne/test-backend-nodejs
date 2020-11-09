@@ -9,6 +9,14 @@ module.exports = {
     return response.json(category);
   },
 
+  async show(request, response) {
+    const { id } = request.params;
+
+    const category = await Category.findOne({ _id: id });
+
+    return response.json(category);
+  },
+
   async store(request, response) {
     const {
       title,

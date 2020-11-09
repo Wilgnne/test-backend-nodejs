@@ -13,6 +13,7 @@ routes.patch('/prod/:id', ProductController.update);
 routes.delete('/prod/:id', ProductController.destroy);
 
 routes.get('/cat', CategoryController.index);
+routes.get('/cat/:id', CategoryController.show);
 routes.post('/cat', CategoryController.store);
 routes.delete('/cat/:id', CategoryController.destroy);
 
