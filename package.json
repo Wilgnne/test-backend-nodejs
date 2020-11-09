@@ -5,13 +5,14 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon --watch 'src/' ."
+    "dev": "nodemon --watch 'src/' --exec 'node -r dotenv/config . dotenv_config_path=.env.local'"
   },
   "repository": "https://github.com/Wilgnne/test-backend-nodejs.git",
   "author": "Wilgnne Khawan <wilgnne.kba@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.13"
   },
