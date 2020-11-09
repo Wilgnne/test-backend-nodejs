@@ -14,7 +14,7 @@ module.exports = {
       title,
       description,
       price,
-      category,
+      categoryId,
     } = request.body;
 
     let product = await Product.findOne({ title });
@@ -24,7 +24,7 @@ module.exports = {
         title,
         description,
         price,
-        category,
+        categoryId,
       });
     }
 
