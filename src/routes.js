@@ -6,6 +6,7 @@ const CategoryController = require('./controllers/CategoryController');
 const routes = Router();
 
 routes.get('/prod', ProductController.index);
+routes.get('/prod/:id', ProductController.show);
 routes.post('/prod', ProductController.store);
 routes.patch('/prod/cat/:id', ProductController.updateCategory);
 routes.patch('/prod/:id', ProductController.update);

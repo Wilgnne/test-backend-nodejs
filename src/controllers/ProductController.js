@@ -17,6 +17,14 @@ module.exports = {
     return response.json(products);
   },
 
+  async show(request, response) {
+    const { id } = request.params;
+
+    const products = await Product.findOne({ _id: id });
+
+    return response.json(products);
+  },
+
   async store(request, response) {
     const {
       title,
