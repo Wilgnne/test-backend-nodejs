@@ -1,4 +1,5 @@
 const Product = require('../models/Product');
+const Category = require('../models/Category');
 
 // index, show, store, update, destroy
 
@@ -48,6 +49,21 @@ module.exports = {
     });
 
     return response.json(product);
+  },
+
+  async updateCategory(request, response) {
+    console.log('test');
+    const { id } = request.params;
+    const { categoryId } = request.body;
+
+    const categoryModel = await Category.findOne({ _id: categoryId });
+    if (categoryModel) {
+      const product = await Product.updateOne({ _id: id }, { categoryId });
+
+      return response.json(product);
+    }
+
+    return response.status(500).send('Bad Request');
   },
 
   async destroy(request, response) {
