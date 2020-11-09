@@ -1,0 +1,9 @@
+{
+  "name": "test-backend-nodejs",
+  "version": "1.0.0",
+  "description": "This test is presented to the BackEnd development candidates to evaluate technical knowledge.",
+  "main": "src/server.js",
+  "repository": "https://github.com/Wilgnne/test-backend-nodejs.git",
+  "author": "Wilgnne Khawan <wilgnne.kba@gmail.com>",
+  "license": "MIT"
+}
