@@ -51,15 +51,65 @@ yarn start
 ### **Product Routes**
 
 - [GET /prod](http://localhost:3333/prod) &rarr; Lists registered products; Use query parameters (title, categoryId) to filter the result;
+
+  ```
+  http://localhost:3333/prod?title=Choc&categoryId=5fa95579c9a5fa5199ae7049
+  ```
+
+- [GET /prod:id](http://localhost:3333/prod/:id) &rarr; Shows the product data
+
+  ```
+  http://localhost:3333/prod/5fa95c81e797bc5a7c968230
+  ```
+
 - [POST /prod](http://localhost:3333/prod) &rarr; Register a new product;
+
+  ```json
+  {
+    "title": "Title of product",
+    "description": "Description of product",
+    "price": 10.50,
+    "categoryId": "5fa9556ac9a5fa5199ae7048" ##see available categories
+  }
+  ```
+
 - [PATCH /prod/:id](http://localhost:3333/prod/:id) &rarr; Update the product data;
+
+  ```json
+  {
+    "title": "New title of product",
+    "description": "New description of product",
+    "price": 10.50
+  }
+  ```
+
 - [PATCH /prod/cat/:id](http://localhost:3333/prod/cat/:id) &rarr; Update a product category;
+
+  ```json
+  {
+    "categoryId": "5fa9556ac9a5fa5199ae7048" ##see available categories
+  }
+  ```
+
 - [DELETE /prod/:id](http://localhost:3333/prod/:id) &rarr; Delete a product;
 
 ### **Category Routes**
 
 - [GET /cat](http://localhost:3333/cat) &rarr; Lists registered categories;
+- [GET /cat:id](http://localhost:3333/prod/:id) &rarr; Shows the category data
+
+  ```
+  http://localhost:3333/cat/5fa9556ac9a5fa5199ae7048
+  ```
+
 - [POST /cat](http://localhost:3333/cat) &rarr; Register a new category;
+
+  ```json
+  {
+    "title": "Categoty Title"
+  }
+  ```
+
 - [DELETE /cat/:id](http://localhost:3333/cat/:id) &rarr; Delete a category;
 
 ## Author
